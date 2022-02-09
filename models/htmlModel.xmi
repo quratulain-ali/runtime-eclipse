@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<html:Container xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:html="http://www.uniandes.edu.co/html" xsi:schemaLocation="http://www.uniandes.edu.co/html html.ecore" name="Julian Picon">
+  <pages title="Evaluaci&#xf3;n del curso" urlToSaveResponses="http://www.google.com" urlToGetData="http://www.google.com" urlToGetRelationResult="http://www.google.com" description="Hola, Por favor, invierta unos pocos minutos de su tiempo para rellenar el siguiente cuestionario.">
+    <views title="Gr&#xe1;ficas">
+      <graphs type="PIE" title="G&#xe9;nero"/>
+      <graphs title="&#xbf;A qu&#xe9; curso acudes? "/>
+      <graphs title="&#xbf;Cu&#xe1;les son los aspectos que m&#xe1;s rescata del curso?"/>
+      <graphs type="SCALAR" title="Indique su nivel de satisfacci&#xf3;n general frente al curso"/>
+      <graphs title="Eval&#xfa;a los siguientes enunciados seg&#xfa;n tu opini&#xf3;n"/>
+    </views>
+    <views title="Encuesta">
+      <sections title="Datos personales">
+        <formElements xsi:type="html:Input" maxLength="50">
+          <label content="Nombres"/>
+        </formElements>
+        <formElements xsi:type="html:TextArea" rows="5" maxLength="50">
+          <label content="Nombres"/>
+        </formElements>
+        <formElements xsi:type="html:Select">
+          <label content="G&#xe9;nero"/>
+          <options content="Femenino"/>
+          <options content="Masculino"/>
+        </formElements>
+        <formElements xsi:type="html:Input" maxLength="10">
+          <label content="C&#xf3;digo"/>
+        </formElements>
+        <formElements xsi:type="html:TextArea" rows="5" maxLength="10">
+          <label content="C&#xf3;digo"/>
+        </formElements>
+      </sections>
+      <sections title="Evaluaci&#xf3;n del curso">
+        <formElements xsi:type="html:Select" type="COMBO">
+          <label content="&#xbf;A qu&#xe9; curso acudes? "/>
+          <options content="Automatizaci&#xf3;n"/>
+          <options content="Agiles"/>
+          <options content="Fabricas de Software"/>
+        </formElements>
+        <formElements xsi:type="html:Select" multiple="true">
+          <label content="&#xbf;Cu&#xe1;les son los aspectos que m&#xe1;s rescata del curso?"/>
+          <options content="Logistica"/>
+          <options content="Tiempo"/>
+          <options content="Contenido del curso"/>
+          <options content="Horario"/>
+          <options content="Plan de estudios"/>
+        </formElements>
+        <formElements xsi:type="html:Input" type="RANGE" min="1" max="5" step="1">
+          <label content="Indique su nivel de satisfacci&#xf3;n general frente al curso"/>
+        </formElements>
+        <formElements xsi:type="html:Input" maxLength="100">
+          <label content="&#xbf;Hay algo que se podr&#xed;a mejorar en el curso? Por favor, d&#xe9;janos saber tu opini&#xf3;n"/>
+        </formElements>
+        <formElements xsi:type="html:TextArea" rows="5" maxLength="100">
+          <label content="&#xbf;Hay algo que se podr&#xed;a mejorar en el curso? Por favor, d&#xe9;janos saber tu opini&#xf3;n"/>
+        </formElements>
+        <formElements xsi:type="html:SelectComplex">
+          <label content="Eval&#xfa;a los siguientes enunciados seg&#xfa;n tu opini&#xf3;n"/>
+          <columnsOptions content="Si"/>
+          <columnsOptions content="No"/>
+          <columnsOptions content="Alguna Veces"/>
+          <options content="&#xbf;Hay cumplimiento del curso?"/>
+          <options content="&#xbf;Existen asesor&#xed;as?"/>
+          <options content="&#xbf;Se resuelven los problemas a tiempo?"/>
+          <options content="&#xbf;Es clara la informaci&#xf3;n suministrada?"/>
+        </formElements>
+      </sections>
+    </views>
+  </pages>
+</html:Container>
