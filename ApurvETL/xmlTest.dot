@@ -1,0 +1,5 @@
+strict digraph G {
+  main [ label="main" ];
+  println_____EolSelf___Any [ label="println() : EolSelf - Any" ];
+  main -> println_____EolSelf___Any [ label="" ];
+}

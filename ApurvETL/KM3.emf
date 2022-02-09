@@ -1,0 +1,75 @@
+@namespace(uri="http://www.eclipse.org/gmt/2005/KM3", prefix="km3")
+package KM3;
+
+abstract class LocatedElement {
+	!unique attr String location;
+	!unique attr String[*] commentsBefore;
+	!unique attr String[*] commentsAfter;
+}
+
+abstract class ModelElement extends LocatedElement {
+	!unique !ordered attr String[1] name;
+	!ordered ref Package[1] ~package;
+}
+
+class Classifier extends ModelElement {
+}
+
+class DataType extends Classifier {
+}
+
+class Enumeration extends Classifier {
+	ref EnumLiteral[*]#~enum literals;
+}
+
+class EnumLiteral extends ModelElement {
+	!ordered ref Enumeration[1]#literals ~enum;
+}
+
+class Class extends Classifier {
+	!unique !ordered attr boolean[1] isAbstract;
+	!ordered ref Class[*] supertypes;
+	val StructuralFeature[*]#owner structuralFeatures;
+	ref Operation[*]#owner operations;
+}
+
+class TypedElement extends ModelElement {
+	!unique !ordered attr int[1] lower;
+	!unique !ordered attr int[1] upper;
+	!unique !ordered attr boolean[1] isOrdered;
+	!unique !ordered attr boolean[1] isUnique;
+	!ordered ref Classifier[1] type;
+}
+
+class StructuralFeature extends TypedElement {
+	!ordered ref Class[1]#structuralFeatures owner;
+	!ordered ref StructuralFeature[*]#derivedFrom subsetOf;
+	!ordered ref StructuralFeature[*]#subsetOf derivedFrom;
+}
+
+class Attribute extends StructuralFeature {
+}
+
+class Reference extends StructuralFeature {
+	!unique !ordered attr boolean[1] isContainer;
+	!ordered ref Reference opposite;
+}
+
+class Operation extends TypedElement {
+	!ordered ref Class[1]#operations owner;
+	ref Parameter[*]#owner parameters;
+}
+
+class Parameter extends TypedElement {
+	!ordered ref Operation[1]#parameters owner;
+}
+
+class Package extends ModelElement {
+	val ModelElement[*] contents;
+	!ordered ref Metamodel[1]#contents metamodel;
+}
+
+class Metamodel extends LocatedElement {
+	val Package[*]#metamodel contents;
+}
+
