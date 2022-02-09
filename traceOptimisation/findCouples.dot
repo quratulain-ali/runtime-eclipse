@@ -1,0 +1,7 @@
+strict digraph G {
+  Movie__movies_Movie____movies2_Movie [ label="Movie (movies!Movie) : movies2!Movie" ];
+  Actor__movies_Actor____movies2_Actor [ label="Actor (movies!Actor) : movies2!Actor" ];
+  Actress__movies_Actress____movies2_Actress [ label="Actress (movies!Actress) : movies2!Actress" ];
+  Movie__movies_Movie____movies2_Movie -> Actor__movies_Actor____movies2_Actor;
+  Movie__movies_Movie____movies2_Movie -> Actress__movies_Actress____movies2_Actress;
+}

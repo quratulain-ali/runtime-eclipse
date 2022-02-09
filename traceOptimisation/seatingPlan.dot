@@ -1,0 +1,13 @@
+strict digraph G {
+  Dining2D__Source_Dining____Target_Dining [ label="Dining2D (Source!Dining) : Target!Dining" ];
+  Table2T__Source_Table____Target_Table [ label="Table2T (Source!Table) : Target!Table" ];
+  Seat2S__Source_Seat____Target_Seat [ label="Seat2S (Source!Seat) : Target!Seat" ];
+  Attendee2A__Source_Attendee____Target_Attendee [ label="Attendee2A (Source!Attendee) : Target!Attendee" ];
+  Language2L__Source_Language____Target_Language [ label="Language2L (Source!Language) : Target!Language" ];
+  Dining2D__Source_Dining____Target_Dining -> Table2T__Source_Table____Target_Table;
+  Dining2D__Source_Dining____Target_Dining -> Attendee2A__Source_Attendee____Target_Attendee;
+  Table2T__Source_Table____Target_Table -> Attendee2A__Source_Attendee____Target_Attendee;
+  Table2T__Source_Table____Target_Table -> Seat2S__Source_Seat____Target_Seat;
+  Seat2S__Source_Seat____Target_Seat -> Attendee2A__Source_Attendee____Target_Attendee;
+  Attendee2A__Source_Attendee____Target_Attendee -> Language2L__Source_Language____Target_Language;
+}

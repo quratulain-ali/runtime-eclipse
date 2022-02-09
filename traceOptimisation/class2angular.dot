@@ -1,0 +1,12 @@
+strict digraph G {
+  Project2Application__c2f_Project____angular_Application [ label="Project2Application (c2f!Project) : angular!Application" ];
+  SiteView2AppModule__c2f_SiteView____angular_AppModule [ label="SiteView2AppModule (c2f!SiteView) : angular!AppModule" ];
+  PageView2Page__c2f_PageView____angular_Page [ label="PageView2Page (c2f!PageView) : angular!Page" ];
+  Entity2Class__c2f_Entity____angular_Class [ label="Entity2Class (c2f!Entity) : angular!Class" ];
+  Entity2Service__c2f_Entity____angular_Service [ label="Entity2Service (c2f!Entity) : angular!Service" ];
+  Entity2LibraryModule__c2f_Entity____angular_LibraryModule [ label="Entity2LibraryModule (c2f!Entity) : angular!LibraryModule" ];
+  Property2ClassProperty__c2f_Property____angular_ClassProperty [ label="Property2ClassProperty (c2f!Property) : angular!ClassProperty" ];
+  ContainerView2Component__c2f_ContainerView____angular_Component [ label="ContainerView2Component (c2f!ContainerView) : angular!Component" ];
+  Primitive2DataType__c2f_PrimitiveType____angular_DataType [ label="Primitive2DataType (c2f!PrimitiveType) : angular!DataType" ];
+  Entity2Class__c2f_Entity____angular_Class -> Property2ClassProperty__c2f_Property____angular_ClassProperty;
+}

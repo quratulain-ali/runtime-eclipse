@@ -1,0 +1,33 @@
+strict digraph G {
+  CreatorToContainer__survey_Creator____html_Container [ label="CreatorToContainer (survey!Creator) : html!Container" ];
+  SurveyToPage__survey_Survey____html_Page [ label="SurveyToPage (survey!Survey) : html!Page" ];
+  ToSection__survey_Section____html_Section [ label="ToSection (survey!Section) : html!Section" ];
+  ToEditable__survey_Question____html_Editable [ label="ToEditable (survey!Question) : html!Editable" ];
+  OpenToInputText__survey_Open____html_Input [ label="OpenToInputText (survey!Open) : html!Input" ];
+  OpenToTextArea__survey_Open____html_TextArea [ label="OpenToTextArea (survey!Open) : html!TextArea" ];
+  ToInputScalar__survey_Scalar____html_Input [ label="ToInputScalar (survey!Scalar) : html!Input" ];
+  ToSingleSelect__survey_Single____html_Select [ label="ToSingleSelect (survey!Single) : html!Select" ];
+  ToSMultipleSelect__survey_Multiple____html_Select [ label="ToSMultipleSelect (survey!Multiple) : html!Select" ];
+  ToOption__survey_Answer____html_Option [ label="ToOption (survey!Answer) : html!Option" ];
+  ToSelectComplex__survey_Grid____html_SelectComplex [ label="ToSelectComplex (survey!Grid) : html!SelectComplex" ];
+  AnswerOptionToOption__survey_AnswerOption____html_Option [ label="AnswerOptionToOption (survey!AnswerOption) : html!Option" ];
+  ScaleOptionToColumnOption__survey_ScaleOption____html_ColumnOption [ label="ScaleOptionToColumnOption (survey!ScaleOption) : html!ColumnOption" ];
+  CreatorToContainer__survey_Creator____html_Container -> SurveyToPage__survey_Survey____html_Page;
+  SurveyToPage__survey_Survey____html_Page -> ToSection__survey_Section____html_Section;
+  ToSection__survey_Section____html_Section -> ToEditable__survey_Question____html_Editable;
+  ToSection__survey_Section____html_Section -> OpenToInputText__survey_Open____html_Input;
+  ToSection__survey_Section____html_Section -> OpenToTextArea__survey_Open____html_TextArea;
+  ToSection__survey_Section____html_Section -> ToInputScalar__survey_Scalar____html_Input;
+  ToSection__survey_Section____html_Section -> ToSingleSelect__survey_Single____html_Select;
+  ToSection__survey_Section____html_Section -> ToSMultipleSelect__survey_Multiple____html_Select;
+  ToSection__survey_Section____html_Section -> ToSelectComplex__survey_Grid____html_SelectComplex;
+  ToSingleSelect__survey_Single____html_Select -> ToOption__survey_Answer____html_Option;
+  ToSMultipleSelect__survey_Multiple____html_Select -> ToOption__survey_Answer____html_Option;
+  ToOption__survey_Answer____html_Option -> ToEditable__survey_Question____html_Editable;
+  ToOption__survey_Answer____html_Option -> OpenToInputText__survey_Open____html_Input;
+  ToOption__survey_Answer____html_Option -> OpenToTextArea__survey_Open____html_TextArea;
+  ToOption__survey_Answer____html_Option -> ToInputScalar__survey_Scalar____html_Input;
+  ToOption__survey_Answer____html_Option -> ToSelectComplex__survey_Grid____html_SelectComplex;
+  ToSelectComplex__survey_Grid____html_SelectComplex -> AnswerOptionToOption__survey_AnswerOption____html_Option;
+  ToSelectComplex__survey_Grid____html_SelectComplex -> ScaleOptionToColumnOption__survey_ScaleOption____html_ColumnOption;
+}
