@@ -1,0 +1,17 @@
+model java driver EMF {
+nsuri = "http://www.eclipse.org/emf/2002/Ecore"
+};
+//var opposites = java!EReference.all.select(r|r.eOpposite.isDefined());//.name;//.println();
+java!EReference.all.size().println();
+//opposites.size().println("Size After=");
+//for(opposite in opposites) {
+//	if(opposite.containment){
+//		delete opposite.eOpposite;
+//	}
+//	if(opposite.name.compareTo(opposite.eOpposite.name)>0){
+//		if(opposite.name.equals("usagesInTypeAccess") or opposite.eOpposite.name.equals("type")){
+//		}
+//		else
+//			delete opposite.eOpposite;
+//	}	
+//}

@@ -1,0 +1,24 @@
+
+//var vs= JavaO!VariableDeclaration.all.usageInVariableAccess;
+//vs.size().println();
+//var size = 0;
+//var v = JavaM!VariableDeclaration.all;
+////for (v in JavaO!VariableDeclaration.all)
+//size= size+JavaM!SingleVariableAccess.all.select(sva|v.contains(sva.variable)).size();
+//size.println();
+//
+//
+//JavaM!SingleVariableAccess.all.size().println();
+//JavaO!SingleVariableAccess.all.variable.size().println();
+var javam = JavaM!ClassDeclaration.all.select(m|m.superInterfaces.notEmpty());
+var javao = JavaO!ClassDeclaration.all.select(o|o.superInterfaces.notEmpty());
+javam.size().println();
+javam.get(1).println().implementsM("Comparator").println();
+javao.get(1).println().implementsO("Comparator").println();
+operation JavaM!AbstractTypeDeclaration implementsM(type : String) {
+	return self.superInterfaces.exists(si | si.type.println("Usage: ")==type);
+}
+
+operation JavaO!AbstractTypeDeclaration implementsO(type : String) {
+	return self.superInterfaces.exists(si | si.type.println("Type : ").name==type);
+}
