@@ -1,0 +1,75 @@
+//var mode : new Model;
+//mode.name = "ABC";
+//Types
+var stringType : new Datatype;
+stringType.name = "String";
+
+var booleanType : new Datatype;
+booleanType.name = "Boolean";
+
+var realType : new Datatype;
+realType.name = "Real";
+
+//Customer Class
+for(i in Sequence{1..1500000}) {
+	
+	var class1 : new Class;
+	class1.name = "Customer"+i;
+
+	var attr1: new Attribute;
+	attr1.name = "fullname";
+	attr1.type = stringType;
+
+	var attr3: new Attribute;
+	attr3.name = "active";
+	attr3.type = booleanType;
+
+	class1.features.add(attr1);
+	class1.features.add(attr3);
+
+	//Account Class
+	var class : new Class;
+	class.name = "Account"+i;
+
+	var ref: new Reference;
+	ref.name = "owner";
+	ref.type = class1;
+
+	var attr: new Attribute;
+	attr.name = "number";
+	attr.type = stringType;
+
+	var attr2: new Attribute;
+	attr2.name = "balance";
+	attr2.type = realType;
+
+	class.features.add(attr);
+	class.features.add(attr2);
+	class.features.add(ref);
+
+	//Employee Class
+	var class2 : new Class;
+	class2.name = "Employee"+i;
+	
+	var ref2: new Reference;
+	ref2.name = "has";
+	ref2.type = class;
+	
+	var attr4: new Attribute;
+	attr4.name = "number";
+	attr4.type = stringType;
+	
+	var attr5: new Attribute;
+	attr5.name = "balance";
+	attr5.type = realType;
+	
+	class2.features.add(attr4);
+	class2.features.add(attr5);
+	class2.features.add(ref2);
+
+}
+
+
+
+
+

@@ -1,0 +1,11 @@
+package T;
+
+class C {
+    attr String name;
+    val D[*] ds;
+}
+
+class D {
+    attr String name;
+   
+}

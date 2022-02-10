@@ -1,0 +1,7 @@
+strict digraph G {
+  main [ label="main" ];
+  size_____Integer___Collection [ label="size() : Integer - Collection" ];
+  println_____EolSelf___Any [ label="println() : EolSelf - Any" ];
+  main -> size_____Integer___Collection [ label="" ];
+  main -> println_____EolSelf___Any [ label="" ];
+}

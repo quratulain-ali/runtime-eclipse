@@ -1,0 +1,47 @@
+model imdb driver ViatraEMF {
+nsuri = "http://movies/1.0"
+};
+"--------------------".println();
+
+//count
+var a = imdb!Movie.all.count(m|m.year == 2010);
+var b = imdb!Movie.all.selectOne(m|m.year <= 2010);
+b.year.println();
+var c = imdb!Movie.all.selectOne(m|m.year <> b.year).println();
+//model imdb driver ViatraEMF {
+//nsuri = "http://movies/1.0"
+//};
+//"--------------------".println();
+//
+////select
+//imdb!Movie.all.select(m|m.year == 2010);
+//imdb!Movie.all.select(m|m.year <= 2010);
+//imdb!Movie.all.select(m|m.year <> 2010);
+//
+////selectOne
+//imdb!Movie.all.selectOne(m|m.year == 2010);
+//imdb!Movie.all.selectOne(m|m.year <= 2010);
+//imdb!Movie.all.selectOne(m|m.year <> 2010);
+//
+////exists
+//imdb!Movie.all.exists(m|m.year == 2010);
+//imdb!Movie.all.exists(m|m.year <= 2010);
+//imdb!Movie.all.exists(m|m.year <> 2010);
+//
+////reject
+//imdb!Movie.all.reject(m|m.year == 2010);
+//imdb!Movie.all.reject(m|m.year == 2010);
+//imdb!Movie.all.reject(m|m.year == 2010);
+//a.size().println();
+/*a.first().println();
+imdb!Movie.all.selectOne(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.exists(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.select(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.select(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.select(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.select(a|a.year=="2009").println("Movies in 2009 = ");
+imdb!Movie.all.select(a|a.year=="2009").size().println("# of Movies in 2009 = ");
+//imdb!Movie.all.selectOne(a|a.year=="2010").println("One movie in 2010 = ");
+//imdb!Movie.all.exists(a|a.year=="2020").println("Any Movie of 2020 exists = ");
+
+"-------------------".println();*/

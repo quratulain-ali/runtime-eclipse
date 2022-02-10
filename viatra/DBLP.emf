@@ -1,0 +1,116 @@
+@namespace(uri="http://dblp.com", prefix="DBLP")
+package DBLP;
+
+abstract class Record {
+	attr String ee;
+	attr String url;
+	attr String key;
+	ref Author[*]#records authors;
+	attr String mdate;
+}
+
+class Article extends Record {
+	attr String title;
+	attr int fromPage;
+	attr int toPage;
+	attr int number;
+	ref Journal#articles journal;
+	attr String volume;
+	attr String month;
+	attr int year;
+}
+
+class Author {
+	attr String name;
+	ref Record[*]#authors records;
+}
+
+class Journal {
+	attr String name;
+	ref Article[*]#journal articles;
+}
+
+class Book extends Record {
+	attr String title;
+	attr int year;
+	ref Publisher publisher;
+	attr String month = "0";
+	attr int volume;
+	attr String series;
+	attr int edition;
+	attr String isbn;
+}
+
+class InCollection extends Record {
+	attr String title;
+	attr String bookTitle;
+	attr int year;
+	ref Editor[*] editors;
+	attr int fromPage;
+	attr int toPage;
+	ref Organization sponsoredBy;
+	ref Publisher publisher;
+	attr String month;
+}
+
+class InProceedings extends Record {
+	attr String title;
+	attr String bootitle;
+	attr int year;
+	attr int fromPage;
+	attr int toPage;
+	attr String month;
+	ref Editor[*] editors;
+	ref Organization organization;
+	ref Publisher publisher;
+}
+
+class MastersThesis extends Record {
+	attr String title;
+	attr int year;
+	ref School school;
+	attr String month;
+}
+
+class Proceedings extends Record {
+	attr String title = "";
+	attr int year;
+	ref Editor[*] editors;
+	ref Publisher publisher;
+	ref Organization[*] sponsoredBy;
+	attr String month;
+	attr String isbn;
+}
+
+class PhDThesis extends Record {
+	attr String title;
+	attr int year;
+	attr String month;
+	ref School school;
+}
+
+class Www extends Record {
+	ref Editor[*] editors;
+	attr String title;
+	attr int year;
+	attr String month;
+}
+
+class Editor {
+	attr String name;
+}
+
+class Organization {
+	attr String name;
+}
+
+class Publisher {
+	attr String name;
+	attr String address;
+}
+
+class School {
+	attr String name;
+	attr String address;
+}
+

@@ -1,0 +1,5 @@
+package vql
+import "http://movies/1.0"
+pattern imdb1 (Movie){
+	neg Movie.year(Movie,2010);
+}

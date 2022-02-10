@@ -1,0 +1,10 @@
+package S;
+
+class A {
+    attr String name;
+    val B[*] bs;
+}
+
+class B {
+    attr String name;
+}

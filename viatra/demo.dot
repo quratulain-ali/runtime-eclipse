@@ -1,0 +1,5 @@
+strict digraph G {
+  main [ label="main" ];
+  asSet_____Set___Any [ label="asSet() : Set - Any" ];
+  main -> asSet_____Set___Any [ label="" ];
+}

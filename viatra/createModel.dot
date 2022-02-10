@@ -1,0 +1,5 @@
+strict digraph G {
+  main [ label="main" ];
+  add_item___Any____Boolean___Any [ label="add(item : Any) : Boolean - Any" ];
+  main -> add_item___Any____Boolean___Any [ label="loop" ];
+}
