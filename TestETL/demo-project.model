@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="research_project_simplified" xmi:id="_aDtAwJNxEeaY0dldeF9pIA">
+  <wps xmi:id="_aqTtwJNxEeaY0dldeF9pIA" number="1" title="Requirements and Use Cases">
+    <deliverables xmi:id="_ex-twJNxEeaY0dldeF9pIA" number="1" title="..." due="-7"/>
+    <deliverables xmi:id="_g239sJNxEeaY0dldeF9pIA" number="2" title="..." due="24"/>
+  </wps>
+  <wps xmi:id="_a9wOMJNxEeaY0dldeF9pIA" number="2" title="Incremental M2T">
+    <deliverables xmi:id="_ndaz4JNxEeaY0dldeF9pIA" number="1" title="..." due="12"/>
+    <deliverables xmi:id="_pIl8QJNxEeaY0dldeF9pIA" number="2" title="..." due="30"/>
+  </wps>
+</Project>

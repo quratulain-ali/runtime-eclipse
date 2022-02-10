@@ -1,0 +1,18 @@
+model Source driver EMF {
+nsuri = "tree"
+};
+
+model Target driver EMF {
+nsuri = "tree"
+};
+pre {
+Source!Tree.all.first();
+}
+rule Tree2Tree
+	transform s : Source!Tree
+	to t : Target!Tree {
+	
+	t1.label := 'CopyOf' + s.label;
+	t.children ::= s.children;
+	
+}

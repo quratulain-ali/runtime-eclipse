@@ -1,0 +1,7 @@
+model ResearchProject driver EMF {
+nsuri ="research_project_simplified"
+};
+ResearchProject!Deliverable.all.first().gethhhId();
+operation ResearchProject!Deliverable getId() {
+	return "D" + self.wp.number + "." + self.number;
+}

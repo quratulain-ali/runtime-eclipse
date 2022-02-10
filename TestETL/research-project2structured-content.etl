@@ -1,0 +1,64 @@
+//import "util.eol";
+model ResearchProject driver EMF {
+nsuri = "research_project_simplified"
+};
+
+model StructuredContent driver EMF {
+nsuri = "structured_content"
+};
+
+rule Project2DeliverablesTable
+	transform p : ResearchProject!Project
+	to t : StructuredContent!Table {
+	
+	t.id = "project_deliverables";
+	
+	for (d in Deliverable.all.sortBy(d|d.due)) {
+		t.createRow(Sequence{d.getId(), d.wp.number, d.due});
+	}	
+}
+
+rule WP2Table 
+	transform wp : ResearchProject!WP
+	to t : StructuredContent!Table {
+	
+	// only generate a table for WPs with deliverables
+//  	guard : wp.deliverables.size() > 0
+  
+	t.id = "wp" + wp.number + "_deliverables";
+	t.createRow(Sequence{"Deliverable", "Title", "Due"});
+	// .equivalent calls Deliverable2Row
+	t.rows.addAll(wp.deliverables.equivalent());
+}
+
+rule Deliverable2Row 
+	transform d : ResearchProject!Deliverable
+	to r : StructuredContent!Row {
+	
+	r.createCell(d.getId());
+	r.createCell(d.title);
+	r.createCell(d.due);
+}
+
+
+
+operation StructuredContent!Table createRow(content : Sequence) {
+	var row : new StructuredContent!Row;
+	for (c in content) {
+		row.createCell(c);
+	}
+	self.rows.add(row);
+}
+
+operation StructuredContent!Row createCell(content : Any) {
+	var cell : new StructuredContent!Cell;
+	cell.content = content + "";
+	self.cells.add(cell);
+}
+
+post {
+  // Put all produced tables under a root Content element
+  var root : new StructuredContent!Content;
+  root.tables.addAll(StructuredContent!Table.all);
+  "Transformation finished".println();
+}
