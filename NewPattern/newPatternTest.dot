@@ -1,0 +1,11 @@
+strict digraph G {
+  main [ label="main" ];
+  first_____Any___Collection [ label="first() : Any - Collection" ];
+  println_____EolSelf___Any [ label="println() : EolSelf - Any" ];
+  includes_item___Any____Boolean___Collection [ label="includes(item : Any) : Boolean - Collection" ];
+  size_____Integer___Collection [ label="size() : Integer - Collection" ];
+  main -> first_____Any___Collection [ label="" ];
+  main -> println_____EolSelf___Any [ label="loop" ];
+  main -> includes_item___Any____Boolean___Collection [ label="loop" ];
+  main -> size_____Integer___Collection [ label="loop" ];
+}

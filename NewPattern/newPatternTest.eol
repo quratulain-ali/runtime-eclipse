@@ -1,0 +1,14 @@
+model Ecore driver SmartEMF {
+nsuri = "http://www.eclipse.org/emf/2002/Ecore",
+optimise = "true"
+};
+
+var ec = Ecore!EClass.all.first().println();
+for(i in Sequence{1..2})
+Ecore!EClass.all.select(c|c.eSuperTypes.includes(ec)).size().println();
+//
+//var a : Collection<Integer> = ainy();
+//operation Collection<String> ainy() : EolSelf {
+//var a : Collection<Integer> = Collection {"a"};
+//return a;
+//}

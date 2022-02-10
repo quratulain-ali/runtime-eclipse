@@ -1,0 +1,103 @@
+@Ecore(settingDelegates="org.eclipse.viatra.query.querybasedfeature")
+@namespace(uri="http://org.eclipse.viatra/model/cps", prefix="cps")
+package cyberPhysicalSystem;
+
+abstract interface Identifiable {
+	id attr String identifier;
+}
+
+class CyberPhysicalSystem extends Identifiable {
+	attr String dbUrl;
+	val ApplicationType[*]#cps appTypes;
+	val Request[*] requests;
+	val HostType[*]#cps hostTypes;
+}
+
+class ApplicationType extends Identifiable {
+	attr String exeFileLocation;
+	attr String exeType;
+	attr String zipFileUrl;
+	val ResourceRequirement[*] requirements;
+	ref CyberPhysicalSystem[1]#appTypes cps;
+	val ApplicationInstance[*]#type instances;
+	val StateMachine behavior;
+	attr long exeFileSize;
+}
+
+class HostType extends Identifiable {
+	attr int defaultCpu;
+	attr int defaultRam;
+	attr int defaultHdd;
+	ref CyberPhysicalSystem[1]#hostTypes cps;
+	val HostInstance[*] instances;
+}
+
+class ResourceRequirement extends Identifiable {
+	attr int requiredCpu;
+	attr int requiredRam;
+	attr int requiredHdd;
+	ref HostType[1] type;
+}
+
+class HostInstance extends Identifiable {
+	attr String nodeIp;
+	attr int availableCpu;
+	attr int availableRam;
+	attr int availableHdd;
+	attr int totalCpu;
+	attr int totalRam;
+	attr int totalHdd;
+	ref ApplicationInstance[*]#allocatedTo applications;
+	ref HostInstance[*] communicateWith;
+}
+
+class ApplicationInstance extends Identifiable {
+	attr AppState state;
+	attr String dbUser;
+	attr String dbPassword;
+	ref HostInstance#applications allocatedTo;
+	ref ApplicationInstance[*] dependOn;
+	ref ApplicationType[1]#instances type;
+	attr int priority;
+}
+
+enum AppState {
+	Running = 0;
+	Stopped = 0;
+}
+
+class Request extends Identifiable {
+	unsettable val Requirement[*]#request requirements;
+}
+
+class Requirement extends Identifiable {
+	attr int count;
+	ref Request[1]#requirements request;
+	unsettable ref ApplicationType[1] type;
+	ref ApplicationInstance[*] applications;
+	attr boolean mandatory = true;
+	attr int[*] availablePorts;
+}
+
+class StateMachine extends Identifiable {
+	val State[*] states;
+	ref State initial;
+}
+
+class State extends Identifiable {
+	val Transition[*] outgoingTransitions;
+}
+
+class Transition extends Identifiable {
+	ref State targetState;
+
+	@GenModel(documentation="The action may specify either waiting for a signal with a given ID or sending a signal with a given ID to another application with a given type ID.
+- Use waitForSignal(signal) to specify waiting for signal
+- Use sendSignal(app, signal) to specify sending a signal to an app
+
+Restrictions:
+- Only one action is allowed in a transition
+- There can be only a single application instance for the given application type ID on host instances that the host on which the sending application instance is allocated to can communicate with.")
+	attr String action;
+}
+
