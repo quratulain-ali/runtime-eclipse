@@ -1,10 +1,10 @@
-model imdb driver EMF {
+model imdb driver SmartEMF {
 nsuri = "http://movies/1.0",
 optimise = "true"
 };
 pre {
 }
-@noindex
+//@noindex
 context imdb!Movie {
  constraint testConstraint{
   check : imdb!Movie.all.exists(a|a.year = "2010" and a.rating = "5.0")

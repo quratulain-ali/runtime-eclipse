@@ -6,7 +6,8 @@ optimise = "true"
 model html driver EMF {
 nsuri = "http://www.uniandes.edu.co/html"
 };
-
+pre {
+}
 rule CreatorToContainer
 transform 
 	creator: survey!Creator

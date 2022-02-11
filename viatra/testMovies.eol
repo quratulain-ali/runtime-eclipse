@@ -1,10 +1,11 @@
 model imdb driver SmartEMF {
 nsuri = "http://movies/1.0"
 };
-//var a ;
-//var actor = imdb!Actor.all.select(ac|ac.name = "Punch, Monkey").first().println();
-//for(i in Sequence{1..2})
-//a=imdb!Movie.all.select(a|a.persons.includes(actor)).size().println();
+var a ;
+var actor = imdb!Actor.all.select(ac|ac.name = "Punch, Monkey").first().println();
+for(i in Sequence{1..2})
+var actor = imdb!Actor.all.select(ac|ac.name = "Punch, Monkey").first().println();
+a=imdb!Movie.all.select(a|a.persons.includes(actor)).size().println();
 Person.all.size().println();
 
 //var i : Sequence;
